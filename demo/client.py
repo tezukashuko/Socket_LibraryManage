@@ -1,17 +1,17 @@
 import socket
 
-HOST = ""  # The server's hostname or IP address
+HOST = "127.0.0.1"  # The server's hostname or IP address
 PORT = 65431        # The port used by the server
 # Create a TCP/IP socket
-while(True):
-    print(f'Your server IP is {socket.gethostbyname(socket.gethostname())}')
-    confirm = input("Type y(yes) or n(No): ")
-    if confirm == 'y':
-        HOST = socket.gethostbyname(socket.gethostname())
-        break
-    else:
-        confirm = input("your IP server: ")
-        HOST = confirm
+# while(True):
+#     print(f'Your server IP is {socket.gethostbyname(socket.gethostname())}')
+#     confirm = input("Type y(yes) or n(No): ")
+#     if confirm == 'y':
+#         HOST = socket.gethostbyname(socket.gethostname())
+#         break
+#     else:
+#         confirm = input("your IP server: ")
+#         HOST = confirm
 
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
