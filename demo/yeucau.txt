@@ -1,0 +1,1 @@
+Các bạn hiệu chỉnh code: cho phép người dung nhập địa chỉ IP của server, cho phép ngắt kết nối khi người dung nhập quit/ exit/ phím đặc biệt
