@@ -1,1 +1,3 @@
 https://codezup.com/socket-server-with-multiple-clients-model-multithreading-python/
+
+https://linuxhint.com/python_socket_file_transfer_send/
