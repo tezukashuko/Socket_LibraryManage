@@ -30,13 +30,13 @@ def threaded_client(connection):
 
    # connection.send(str.encode('Welcome to the Server - test send data'))
 
-    f = open('book.pdf', 'rb')
+    f = open('./book/book.', 'rb')
     data = f.read(1024)
 
     while(data):
         connection.send(data)
         data = f.read(1024)
-        
+
   #  connection.send(str.encode('file sent'))
 
     # while True:
@@ -62,7 +62,7 @@ while True:
     start_new_thread(threaded_client, (Client, ))
 
     ThreadCount += 1
-
+    
     print('Thread Number: ' + str(ThreadCount))
 
 ServerSocket.close()

@@ -1,0 +1,30 @@
+{
+  "users": [
+    {
+      "username": "admin",
+      "password": "admin"
+    },
+    {
+      "username": "phu",
+      "password": "phu"
+    },
+    {
+      "username": "cuong",
+      "password": "cuong"
+    }
+  ],
+  "books": [
+    {
+      "id": "1",
+      "name": "admin",
+      "type": "admin",
+      "author": "admin"
+    },
+	 {
+      "id": "1",
+      "name": "admin",
+      "type": "admin",
+      "author": "admin"
+    }
+  ]
+}

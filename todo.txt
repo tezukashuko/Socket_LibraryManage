@@ -1,1 +1,27 @@
-jnsndjnsnfdnjfs
+func user
+
+checkusername(userstr) check trùng nếu trùng return = false 
+if true append to arr
+
+login(user, pass) out 2 error
+------
+func books
+str đã đúng định dạng, chỉ search trong arr
+id = 1
+name =type=author = 'asd'
+search by name(str) output arr[name]
+search by id(str) output arr[id]
+search by type(str) output arr[type]
+search by author(str) output arr[author]
+có thì trả ra arr of book(s)
+không có trả return 0 
+
+
+
+
+
+
+
+
+
+
