@@ -1,23 +1,21 @@
 func user
 
-checkusername(userstr) check trùng nếu trùng return = false 
-if true append to arr
+checkusername(userstr) check trùng nếu trùng return = false -> done
+if true append to arr -> done
 
 login(user, pass) out 2 error
 ------
 func books
-str đã đúng định dạng, chỉ search trong arr
+str đã đúng định dạng, chỉ search trong arr -> done 
 id = 1
 name =type=author = 'asd'
-search by name(str) output arr[name]
-search by id(str) output arr[id]
-search by type(str) output arr[type]
-search by author(str) output arr[author]
+
+search by name(str) output arr[name]        -> done
+search by id(str) output arr[id]            -> done
+search by type(str) output arr[type]        -> done
+search by author(str) output arr[author]    -> done
 có thì trả ra arr of book(s)
 không có trả return 0 
-
-
-
 
 
 
