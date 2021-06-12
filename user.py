@@ -21,10 +21,11 @@ def checkLogin(user):
 
 def createNewUser(user):
     if not checkExistUsername(user):
-        arr['users'].append(user)
-        newF = open('data.json',"w")
-        newF.write(json.dumps(arr['users']))
-        newF.close()
+       # arr['users'].append(user)
+       # newF = open('data.json',"w")
+       # newF.write(json.dumps(arr['users']))
+       # newF.close()
+       # write = rewrite toàn bộ file json, ch tối ưu
         return True # tạo user thành công
     else: return False # tạo user thất bại
 
@@ -60,10 +61,10 @@ f = open('data.json', "r")
 arr = json.loads(f.read())
 
 user = {}
-user['username'] = 'admin'
-user['password'] = 'admin'
+user['username'] = '123'
+user['password'] = '123'
 
-checkLogin(user)
+createNewUser(user)
 print('\n')
 
 book = {}
