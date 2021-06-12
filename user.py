@@ -3,7 +3,7 @@ def checkUsername(newUser):
     for i in arr['user']:
         if user_str == i['username']:
             return False
-    arr.append(newUser) ### lỗi nha, arr[user]
+    arr['user'].append(newUser)
     return True
 
 def checkLogin(user):
