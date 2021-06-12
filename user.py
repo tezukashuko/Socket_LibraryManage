@@ -21,11 +21,10 @@ def checkLogin(user):
 
 def createNewUser(user):
     if not checkExistUsername(user):
-       # arr['users'].append(user)
-       # newF = open('data.json',"w")
-       # newF.write(json.dumps(arr['users']))
-       # newF.close()
-       # write = rewrite toàn bộ file json, ch tối ưu
+        arr['users'].append(user)
+        newF = open('data.json',"w")
+        newF.write(json.dumps(arr))
+        newF.close() # done :3 cần tối ưu để check file json dễ hơn, htại chỉ hiển thị trên 1 dòng
         return True # tạo user thành công
     else: return False # tạo user thất bại
 
