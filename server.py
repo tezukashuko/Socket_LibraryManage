@@ -1,6 +1,40 @@
 import socket
 import os
 from _thread import *
+import json
+##### function check
+def checkExistUsername(user):
+    user_str = user['username']
+    for i in arr['users']:
+        if user_str == i['username']:
+            return True # đã tồn tại
+    return False # k tồn tại
+
+def checkUserPassword(user):
+    for i in arr['users']:
+        if user['username'] == i['username'] and user['password'] == i['password']:
+            return True # đúng password
+    else: return False # sai password
+
+def checkLogin(user):
+    err = 0
+    userexist = checkExistUsername(user)
+    if (userexist):
+        pwcheck = checkUserPassword(user)
+        if pwcheck == False:
+            err = 2
+    else:
+        err = 1
+    if err == 1: return 'Username does not found!'
+    elif err == 2:  return 'Your password is incorrect!'
+    else: return 'Logged in successfully!'
+
+
+f = open('./data.json', "r")
+arr = json.loads(f.read())
+#####
+
+
 
 ServerSocket = socket.socket()
 host = '127.0.0.1'
@@ -16,14 +50,26 @@ ServerSocket.listen(5)
 
 
 def threaded_client(connection):
-    connection.send(str.encode('Welcome to the Servern'))
-    while True:
-        data = connection.recv(2048)
-        reply = 'Server Says: ' + data.decode('utf-8')
-        if not data:
-            break
-        connection.sendall(str.encode(reply))
-    connection.close()
+    try:
+        while True:
+            data = connection.recv(2048)
+            # reply = 'Server Says: ' + data.decode('utf-8')
+            if data.decode('utf-8') == 'login':
+                username = connection.recv(2048).decode('utf-8')
+                pw = connection.recv(2048).decode('utf-8')
+                user = {}
+                user['username'] = username
+                user['password'] = pw
+                respone = checkLogin(user)
+                connection.sendall(str.encode(respone))
+            # if not data:
+            #     break
+            # connection.sendall(str.encode(reply))
+        connection.close()
+    except: ##if client auto out
+        address = connection.getpeername()
+        print(address[0] + ':' + str(address[1]) +  ' has been corrupted')
+
 
 while True:
     Client, address = ServerSocket.accept()

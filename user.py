@@ -13,11 +13,16 @@ def checkUserPassword(user):
 
 def checkLogin(user):
     err = 0
-    if not checkExistUsername(user): err = 1   # k tồn tại username
-    elif not checkUserPassword(user): err = 2  # k đúng password
-    if err == 1: print('Username does not found!')
-    elif err == 2: print('Your password is incorrect!')
-    else: print('Logged in successfully!')
+    userexist = checkExistUsername(user)
+    if (userexist):
+        pwcheck = checkUserPassword(user)
+        if pwcheck == False:
+            err = 2
+    else:
+        err = 1
+    if err == 1: return 'Username does not found!'
+    elif err == 2:  return 'Your password is incorrect!'
+    else: return 'Logged in successfully!'
 
 def createNewUser(user):
     if not checkExistUsername(user):
