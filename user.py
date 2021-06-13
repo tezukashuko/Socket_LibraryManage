@@ -38,15 +38,25 @@ def searchDefault(searchType, inpStr):
         for i in arr['books']:
             if i[searchType].startswith(inpStr):
                 returnArr.append(i)
-        if returnArr == []: return False
+        if returnArr == []: return False # return False nếu k tìm thấy
         else: return returnArr  # return Arr nếu tồn tại kquả
-    else: return False  # return False nếu k tìm thấy
+    else: return False # return False nếu inpStr k phải str
 
-def searchByName(name):
-    return searchDefault('name', name)
+def searchFunction(inpStr):
+    arr = inpStr.split(" ", 1)
+    for i in arr:
+        i = i.strip()
+    if arr[0] == "": return False   #sai cú pháp search (khoảng trắng ở đầu )
+    elif arr[0] == "F_ID": return searchByID(arr[1])
+    elif arr[0] == "F_Name": return searchByName(arr[1])
+    elif arr[0] == "F_Type": return searchByType(arr[1])
+    elif arr[0] == "F_Author": return searchByAuthor(arr[1])
 
 def searchByID(ID):
     return searchDefault('id', ID)
+
+def searchByName(name):
+    return searchDefault('name', name)
 
 def searchByType(type):
     return searchDefault('type', type)
@@ -63,21 +73,17 @@ user = {}
 user['username'] = '123'
 user['password'] = '123'
 
-createNewUser(user)
-print('\n')
-
 book = {}
 book['id'] = 1
 book['name'] = 'admin'
 book['author'] = 'admin'
 book['type'] = 'admin'
 
-x = searchByName(book['name'])
-for i in x:
-    print('ID: ' + i['id'])
-    print('Name: ' + i['name'])
-    print('Type: ' + i['type'])
-    print('Author: ' + i['author'])
-    print('\n')
-
-f.close()
+x = searchFunction("F_Name wweg")
+if x != False:
+    for i in x:
+        print("ID: " + i['id'])
+        print("Name: " + i['name'])
+        print("Type: " + i['type'])
+        print("Author: " + i['author'])
+else: print("Sai cú pháp hoặc sách không tồn tại")
