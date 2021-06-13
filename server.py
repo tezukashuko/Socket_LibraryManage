@@ -17,16 +17,10 @@ def checkUserPassword(user):
     else: return False # sai password
 
 def checkLogin(user):
-    err = 0
-    userexist = checkExistUsername(user)
-    if (userexist):
-        pwcheck = checkUserPassword(user)
-        if pwcheck == False:
-            err = 2
-    else:
-        err = 1
-    if err == 1: return 'Username does not found!'
-    elif err == 2:  return 'Your password is incorrect!'
+    if not checkExistUsername(user): 
+        return 'Username does not found!'  # k tồn tại username
+    elif not checkUserPassword(user): 
+        return 'Your password is incorrect!'  # k đúng password
     else: return 'Logged in successfully!'
 
 
