@@ -17,16 +17,16 @@ def checkLogin(user):
     elif not checkUserPassword(user): err = 2  # k đúng password
     if err == 1: print('Username does not found!')
     elif err == 2: print('Your password is incorrect!')
-    else: print('Login successfully!')
+    else: print('Logged in successfully!')
 
 def createNewUser(user):
     if not checkExistUsername(user):
         arr['users'].append(user)
         newF = open('data.json',"w")
         newF.write(json.dumps(arr))
-        newF.close() # done :3 cần tối ưu để check file json dễ hơn, htại chỉ hiển thị trên 1 dòng
+        newF.close() # done :3 cần tối ưu để check file json dễ hơn, htại chỉ hiển thị trên 1 dòng -> rối mắt vcl
         return True # tạo user thành công
-    else: return False # tạo user thất bại
+    else: return False # tạo user thất bại (đã tồn tại username trong json)
 
 def checkInputType(inp):
    if inp.strip().isdigit(): return False  # inp là số -> False
@@ -42,7 +42,7 @@ def searchDefault(searchType, inpStr):
         else: return returnArr  # return Arr nếu tồn tại kquả
     else: return False # return False nếu inpStr k phải str
 
-def searchFunction(inpStr):
+def searchBook(inpStr):
     arr = inpStr.split(" ", 1)
     for i in arr:
         i = i.strip()
@@ -64,26 +64,19 @@ def searchByType(type):
 def searchByAuthor(author):
     return searchDefault('author', author)
 
+def printBook(arr):
+    if arr:
+        for i in arr:
+            print("\nID: " + i['id'])
+            print("Name: " + i['name'])
+            print("Type: " + i['type'])
+            print("Author: " + i['author'] + "\n")
+    else: print("Sai cú pháp hoặc sách không tồn tại\n")
+
 import json
 
 f = open('data.json', "r")
 arr = json.loads(f.read())
 
-user = {}
-user['username'] = '123'
-user['password'] = '123'
-
-book = {}
-book['id'] = 1
-book['name'] = 'admin'
-book['author'] = 'admin'
-book['type'] = 'admin'
-
-x = searchFunction("F_Name wweg")
-if x != False:
-    for i in x:
-        print("ID: " + i['id'])
-        print("Name: " + i['name'])
-        print("Type: " + i['type'])
-        print("Author: " + i['author'])
-else: print("Sai cú pháp hoặc sách không tồn tại")
+x = searchBook("F_Name admin")
+printBook(x)
