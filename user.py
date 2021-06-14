@@ -73,12 +73,5 @@ def printBook(arr):
     else: print("Sai cú pháp hoặc sách không tồn tại\n")
 
 import json
-
 f = open('data.json', "r")
 arr = json.loads(f.read())
-
-user = {}
-user['username'] = 'admi'
-user['password'] = 'admi'
-
-print(checkLogin(user))
