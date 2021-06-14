@@ -43,8 +43,8 @@ def searchDefault(searchType, inpStr):
 
 def searchBook(inpStr):
     arr = inpStr.split(" ", 1)
-    for i in arr:
-        i = i.strip()
+    for i in range(len(arr)):
+        arr[i] = arr[i].strip().replace('"', '')
     if arr[0] == "": return False   #sai cú pháp search (khoảng trắng ở đầu )
     elif arr[0] == "F_ID": return searchByID(arr[1])
     elif arr[0] == "F_Name": return searchByName(arr[1])
@@ -77,5 +77,5 @@ import json
 f = open('data.json', "r")
 arr = json.loads(f.read())
 
-x = searchBook("F_Name admin")
+x = searchBook('F_Name "admin"')
 printBook(x)
