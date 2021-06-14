@@ -46,15 +46,18 @@ ServerSocket.listen(5)
 def threaded_client(connection):
     try:
         while True:
-            data = connection.recv(2048)
+            data = connection.recv(1024)
             # reply = 'Server Says: ' + data.decode('utf-8')
             if data.decode('utf-8') == 'login':
-                username = connection.recv(2048).decode('utf-8')
-                pw = connection.recv(2048).decode('utf-8')
+                username = connection.recv(1024).decode('utf-8')
+                pw = connection.recv(1024).decode('utf-8')
+                print(username)
+                print(pw)
                 user = {}
                 user['username'] = username
                 user['password'] = pw
                 respone = checkLogin(user)
+                print(respone)
                 connection.sendall(str.encode(respone))
             # if not data:
             #     break

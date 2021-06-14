@@ -1,6 +1,4 @@
 import socket
-
-
 from tkinter import *
 import time
 
@@ -184,42 +182,41 @@ pw_inp.grid(row=1, column=2)
 
 
 def login():
+    errorusername.configure(text = '')
+    errorpw.configure(text = '')
+
     username = username_inp.get()
     pw = pw_inp.get()
-    ClientSocket.send(str.encode('login'))
-    ClientSocket.send(str.encode(username))
-    ClientSocket.send(str.encode(pw))
-    respone = ClientSocket.recv(2048).decode('utf-8')
+    ClientSocket.sendall(str.encode('login'))
+    ClientSocket.sendall(str.encode(username))
+    ClientSocket.sendall(str.encode(pw))
+    respone = ClientSocket.recv(1024).decode('utf-8')
     print(respone)
-    # if (username == ''):
-    #     username_inp.delete(0, 'end')
+    if (respone == 'Logged in successfully!'):
+        username_inp.delete(0, 'end')
 
 
-    #     pw_inp.delete(0, 'end')
+        pw_inp.delete(0, 'end')
 
 
-    #     success.configure(text='Login success')
+        success.configure(text=respone)
+        # add check in here
+        login_frm.pack_forget()
 
 
-    #     # add check in here
+        success.pack(pady=5)
 
 
-    #     login_lbl_frm.pack_forget()
+        Logout_btn.pack(pady=5)
 
 
-    #     success.pack(pady=5)
+        search_frm.pack(pady=5, padx=5, fill='x')
 
 
-    #     Logout_btn.pack(pady=5)
-
-
-    #     search_frm.pack(pady=5, padx=5, fill='x')
-
-
-    # else:
-
-
-    #     errorusername.configure(text='username error')
+    elif respone == 'Username does not found!':
+        errorusername.configure(text = respone)
+    elif respone == 'Your password is incorrect!':
+        errorpw.configure(text = respone)
 
 
 
@@ -287,7 +284,7 @@ print(success.cget('text'))
 def logout():
 
 
-    login_lbl_frm.pack(fill='x', padx=10, pady=5)
+    login_frm.pack(fill='x', padx=10, pady=5)
 
 
     Logout_btn.pack_forget()
