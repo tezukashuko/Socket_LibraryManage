@@ -12,9 +12,9 @@ def checkUserPassword(user):
     else: return False # sai password
 
 def checkLogin(user):
-    if not checkExistUsername(user): 
+    if checkExistUsername(user) == False: 
         return 'Username does not found!'  # k tồn tại username
-    elif not checkUserPassword(user): 
+    elif checkUserPassword(user) == False: 
         return 'Your password is incorrect!'  # k đúng password
     else: return 'Logged in successfully!'
 
@@ -77,5 +77,8 @@ import json
 f = open('data.json', "r")
 arr = json.loads(f.read())
 
-x = searchBook('F_Name "admin"')
-printBook(x)
+user = {}
+user['username'] = 'admi'
+user['password'] = 'admi'
+
+print(checkLogin(user))
