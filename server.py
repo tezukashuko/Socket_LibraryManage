@@ -1,31 +1,10 @@
 import socket
 import os
 from _thread import *
-import json
+import pickle
+import func
 ##### function check
-def checkExistUsername(user):
-    user_str = user['username']
-    for i in arr['users']:
-        if user_str == i['username']:
-            return True # đã tồn tại
-    return False # k tồn tại
-
-def checkUserPassword(user):
-    for i in arr['users']:
-        if user['username'] == i['username'] and user['password'] == i['password']:
-            return True # đúng password
-    else: return False # sai password
-
-def checkLogin(user):
-    if not checkExistUsername(user): 
-        return 'Username does not found!'  # k tồn tại username
-    elif not checkUserPassword(user): 
-        return 'Your password is incorrect!'  # k đúng password
-    else: return 'Logged in successfully!'
-
-
-f = open('./data.json', "r")
-arr = json.loads(f.read())
+arr = func.arr
 #####
 
 
@@ -47,18 +26,24 @@ def threaded_client(connection):
     try:
         while True:
             data = connection.recv(1024)
+            print('recved')
+            arr = pickle.loads(data)
+            print(arr)
             # reply = 'Server Says: ' + data.decode('utf-8')
-            if data.decode('utf-8') == 'login':
-                username = connection.recv(1024).decode('utf-8')
-                pw = connection.recv(1024).decode('utf-8')
-                print(username)
-                print(pw)
+            if arr[0] == 'login':
+                print(arr[1])
+                print(arr[2])
                 user = {}
-                user['username'] = username
-                user['password'] = pw
-                respone = checkLogin(user)
+                user['username'] = arr[1]
+                user['password'] = arr[2]
+                respone = func.checkLogin(user)
                 print(respone)
-                connection.sendall(str.encode(respone))
+                connection.sendall(respone.encode('utf-8'))
+            elif arr[0] == 'search':
+                search_str = arr[1]
+                book = func.searchBook(search_str)
+                print(book)
+                #connection.sendall(respone.encode('utf-8'))
             # if not data:
             #     break
             # connection.sendall(str.encode(reply))
