@@ -6,7 +6,7 @@
     { "username": "123", "password": "123" }
   ],
   "books": [
-    { "id": "1", "name": "admin", "type": "admin", "author": "admin" },
-    { "id": "2", "name": "admin1", "type": "admin1", "author": "admin1" }
+    { "id": 1, "name": "admin", "type": "admin", "author": "admin" },
+    { "id": 2, "name": "admin1", "type": "admin1", "author": "admin1" }
   ]
 }
