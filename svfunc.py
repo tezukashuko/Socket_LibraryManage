@@ -1,4 +1,12 @@
+def updatedataFromJson():
+    global arr
+    f = open('data.json', "r")
+    arr = json.loads(f.read())
+    f.close()
+
 def checkExistUsername(user):
+    if user['username'] == '':
+        return False # k tồn tại
     user_str = user['username']
     for i in arr['users']:
         if user_str == i['username']:
@@ -13,7 +21,6 @@ def checkUserPassword(user):
 
 def checkLogin(user):
     updatedataFromJson()
-
     if checkExistUsername(user) == False: 
         return 'Username does not found!'  # k tồn tại username
     elif checkUserPassword(user) == False: 
@@ -22,7 +29,8 @@ def checkLogin(user):
 
 def createNewUser(user):
     updatedataFromJson()
-
+    if user['username'] == '':
+        return False # user ảo
     if checkExistUsername(user) == False:
         arr['users'].append(user)
         newF = open('data.json',"w")
@@ -34,12 +42,12 @@ def createNewUser(user):
 def searchDefault(searchType, inpStr):
     updatedataFromJson()
     returnArr = []
-    for i in arr['books']:
+    for book in arr['books']:
         if searchType == 'id':
-            i['id'] = str(i['id'])
-        if i[searchType].startswith(inpStr):
-            i['id'] = int(i['id'])
-            returnArr.append(i)
+            book['id'] = str(book['id'])
+        if book[searchType].startswith(inpStr):
+            book['id'] = int(book['id'])
+            returnArr.append(book)
     if returnArr == []: return False # return False nếu k tìm thấy
     else: return returnArr  # return Arr nếu tồn tại kquả
 
@@ -49,31 +57,13 @@ def searchBook(inpStr):
         arr[i] = arr[i].strip().replace('"', '')
     if arr[0] == "F_ID":        arr[1] = arr[1].replace(' ', '')
     if arr[0] == "":            return False   #sai cú pháp search (khoảng trắng ở đầu )
-    elif arr[0] == "F_ID":      return searchByID(arr[1])
-    elif arr[0] == "F_Name":    return searchByName(arr[1])
-    elif arr[0] == "F_Type":    return searchByType(arr[1])
-    elif arr[0] == "F_Author":  return searchByAuthor(arr[1])
-
-def searchByID(ID):
-    return searchDefault('id', ID)
-
-def searchByName(name):
-    return searchDefault('name', name)
-
-def searchByType(type):
-    return searchDefault('type', type)
-
-def searchByAuthor(author):
-    return searchDefault('author', author)
+    elif arr[0] == "F_ID":      return searchDefault('id' , arr[1])
+    elif arr[0] == "F_Name":    return searchDefault('name', arr[1])
+    elif arr[0] == "F_Type":    return searchDefault('type', arr[1])
+    elif arr[0] == "F_Author":  return searchDefault('author', arr[1])
 
 import json
 arr = 0
-def updatedataFromJson():
-    global arr
-    f = open('data.json', "r")
-    arr = json.loads(f.read())
-    f.close()
-    
 
 
 ########## test down this line ##########
