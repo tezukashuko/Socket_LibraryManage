@@ -1,12 +1,1 @@
-{
-  "users": [
-    { "username": "admin", "password": "admin" },
-    { "username": "phu", "password": "phu" },
-    { "username": "cuong", "password": "cuong" },
-    { "username": "123", "password": "123" }
-  ],
-  "books": [
-    { "id": 1, "name": "admin", "type": "admin", "author": "admin" },
-    { "id": 2, "name": "admin1", "type": "admin1", "author": "admin1" }
-  ]
-}
+{"users": [{"username": "admin", "password": "admin"}, {"username": "phu", "password": "phu"}, {"username": "cuong", "password": "cuong"}, {"username": "123", "password": "123"}, {"username": "admin1", "password": "admin"}, {"username": "admin2", "password": "admin2"}], "books": [{"id": 1, "name": "aa aan", "type": "admin", "author": "admin", "filename": "book1.txt"}, {"id": 2, "name": "admin", "type": "admin1", "author": "admin1", "filename": "book2.pdf"}, {"id": 3, "name": "admin", "type": "admin1", "author": "admin1", "filename": "book3.txt"}, {"id": 4, "name": "admin", "type": "admin1", "author": "admin1", "filename": "book4.txt"}, {"id": 5, "name": "admin", "type": "admin1", "author": "admin1", "filename": "book5.txt"}, {"id": 6, "name": "admin", "type": "admin1", "author": "admin1", "filename": "book6.txt"}, {"id": 7, "name": "admin", "type": "admin1", "author": "admin1", "filename": "book7.txt"}, {"id": 8, "name": "admin", "type": "admin1", "author": "admin1", "filename": "book8.txt"}]}

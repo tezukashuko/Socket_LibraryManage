@@ -30,7 +30,7 @@ def threaded_client(connection):
 
    # connection.send(str.encode('Welcome to the Server - test send data'))
 
-    f = open('./book/book.', 'rb')
+    f = open('./booksv/book1.txt', 'rb')
     data = f.read(1024)
 
     while(data):
