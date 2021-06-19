@@ -51,6 +51,7 @@ def downloadBook(name):
         ClientSocket.sendall(pickle.dumps(arr))
     except:
         serverdown()
+        return
     filesize = int(ClientSocket.recv(1024).decode('utf-8'))
 
     arr = ['download', name]
@@ -58,6 +59,7 @@ def downloadBook(name):
         ClientSocket.sendall(pickle.dumps(arr))
     except:
         serverdown()
+        return
     file = open('./bookdownload/'+name, 'wb')
 
     while filesize >= 0:
@@ -97,13 +99,15 @@ def login():
         ClientSocket.sendall(pickle.dumps(arr))
     except:
         serverdown()
+        return
     # ClientSocket.sendall('login'.encode('utf-8'))
 
     # ClientSocket.sendall(username.encode('utf-8'))
 
     # ClientSocket.sendall(pw.encode('utf-8'))
-
+   
     respone = ClientSocket.recv(1024).decode('utf-8')
+  
     print(respone)
 
     if (respone == 'Logged in successfully!'):
@@ -126,6 +130,7 @@ def register():
         ClientSocket.sendall(pickle.dumps(arr))
     except:
         serverdown()
+        return
     respone = ClientSocket.recv(1024).decode('utf-8')
 
     if respone == 'True':
@@ -142,6 +147,7 @@ def search():
         ClientSocket.sendall(pickle.dumps(arr))
     except:
         serverdown()
+        return
     if (scrollable_frame.winfo_exists()):
 
         for widgets in scrollable_frame.winfo_children():
