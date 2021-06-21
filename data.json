@@ -28,20 +28,20 @@
         "id": 2,
         "name": "Blue",
         "type": "Comedy",
-        "author": "admin1",
+        "author": "admin",
         "filename": "book2.pdf"
     }, {
         "id": 3,
         "name": "White",
         "type": "Romance",
-        "author": "admin1",
-        "filename": "book3.txt"
+        "author": "admin",
+        "filename": "1959003.docx"
     }, {
         "id": 4,
         "name": "Cyan",
         "type": "Tragedy",
-        "author": "admin2",
-        "filename": "1959003.docx"
+        "author": "admin",
+        "filename": "book4.txt"
     }, {
         "id": 5,
         "name": "Black",

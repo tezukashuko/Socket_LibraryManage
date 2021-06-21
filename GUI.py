@@ -1,8 +1,9 @@
 import socket
 from tkinter import *
 from tkinter import messagebox
+import os
 import pickle  # convert list to string
-import recv
+
 
 
 ClientSocket = 0
@@ -46,6 +47,8 @@ def createScrollFrame(frame):
 
 
 def downloadBook(name):
+    if not os.path.exists('./bookdownload'): #create folder if no exist
+        os.makedirs('./bookdownload')
     arr = ['getfilesize', name]
     try:
         ClientSocket.sendall(pickle.dumps(arr))
@@ -292,7 +295,7 @@ search_inp_frm.pack(fill='x', padx=5, pady=5)
 search_lbl = Label(search_inp_frm, text="Type here: ")
 search_lbl.grid(sticky='w')
 search_inp = Entry(search_inp_frm)
-search_inp.insert(0, 'F_Type admin')
+search_inp.insert(0, 'F_Author admin')
 search_inp.grid(row=0, column=2)
 search_btn = Button(search_inp_frm, text='Search', command=search)
 search_btn.grid(row=0, column=3, padx=5)

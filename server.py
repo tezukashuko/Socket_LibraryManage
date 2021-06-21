@@ -2,7 +2,7 @@ import socket
 
 import os  # getfilesize
 
-from _thread import *
+import threading
 
 import pickle  # arr to str
 
@@ -14,11 +14,6 @@ import svfunc
 
 #####
 
-<<<<<<< Updated upstream
-ServerSocket = socket.socket() # create a socket object
-host = '127.0.0.1'
-port = 1233
-=======
 
 ServerSocket = socket.socket()
 
@@ -28,17 +23,11 @@ local_ip = socket.gethostbyname(hostname)
 
 port = 50327  # 5 + 2 số cuối mssv 03 và 27
 
->>>>>>> Stashed changes
 ThreadCount = 0
 
 
 try:
-<<<<<<< Updated upstream
-    ServerSocket.bind((host, port)) # associate the socket with a specific network interface and port number
-=======
-
     ServerSocket.bind((local_ip, port))
->>>>>>> Stashed changes
 except socket.error as e:
     print('Cannot create Server')
 
@@ -53,13 +42,7 @@ def threaded_client(connection):
     try:
 
         while True:
-<<<<<<< Updated upstream
             data = connection.recv(1024) #  reads whatever data the client sends
-=======
-
-            data = connection.recv(1024)
-
->>>>>>> Stashed changes
             # print('recved')
 
             arr = pickle.loads(data)
@@ -76,14 +59,9 @@ def threaded_client(connection):
                 user['password'] = arr[2]
 
                 respone = svfunc.checkLogin(user)
-<<<<<<< Updated upstream
-                print(respone)
-                connection.sendall(respone.encode('utf-8')) # echo back respone to client
-=======
                 # print(respone)
 
                 connection.sendall(respone.encode('utf-8'))
->>>>>>> Stashed changes
 
             elif arr[0] == 'register':
 
@@ -125,10 +103,9 @@ def threaded_client(connection):
 
                 while data:
                     connection.send(data)
-
                     data = f.read(1024)
-
                     if not data:
+                        f.close()
                         print(address[0] + ':' + str(address[1]) + ' ==> Sent ' + arr[1]+ ' completely to client')
                         break
 
@@ -154,7 +131,7 @@ while True:
 
     print('Connected to: ' + address[0] + ':' + str(address[1]))
 
-    start_new_thread(threaded_client, (Client, ))
+    threading._start_new_thread(threaded_client, (Client, ))
 
     ThreadCount += 1
 
