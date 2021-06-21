@@ -6,25 +6,25 @@ def updatedataFromJson():
 
 def checkExistUsername(user):
     if user['username'] == '':
-        return False # k tồn tại
+        return False # not exists username
     user_str = user['username']
     for i in arr['users']:
         if user_str == i['username']:
-            return True # đã tồn tại
-    return False # k tồn tại
+            return True # existed username
+    return False # not exists username
 
 def checkUserPassword(user):
     for i in arr['users']:
         if user['username'] == i['username'] and user['password'] == i['password']:
-            return True # đúng password
-    else: return False # sai password
+            return True # right password
+    else: return False # wrong password
 
 def checkLogin(user):
     updatedataFromJson()
     if checkExistUsername(user) == False: 
-        return 'Username does not found!'  # k tồn tại username
+        return 'Username does not found!'  # not exists username
     elif checkUserPassword(user) == False: 
-        return 'Your password is incorrect!'  # k đúng password
+        return 'Your password is incorrect!'  # wrong password
     else: return 'Logged in successfully!'
 
 def createNewUser(user):
@@ -35,9 +35,9 @@ def createNewUser(user):
         arr['users'].append(user)
         newF = open('data.json',"w")
         newF.write(json.dumps(arr))
-        newF.close() # done :3 cần tối ưu để check file json dễ hơn, htại chỉ hiển thị trên 1 dòng -> rối mắt vcl
-        return True # tạo user thành công
-    else: return False # tạo user thất bại (đã tồn tại username trong json)
+        newF.close()
+        return True # create user successfully
+    else: return False # create user failed (existed username in json file)
 
 def searchDefault(searchType, inpStr):
     updatedataFromJson()
@@ -48,15 +48,15 @@ def searchDefault(searchType, inpStr):
         if book[searchType].startswith(inpStr):
             book['id'] = int(book['id'])
             returnArr.append(book)
-    if returnArr == []: return False # return False nếu k tìm thấy
-    else: return returnArr  # return Arr nếu tồn tại kquả
+    if returnArr == []: return False # return False if can't find any book
+    else: return returnArr  # return Arr if found any book
 
 def searchBook(inpStr):
     arr = inpStr.split(' ', 1)
     for i in range(len(arr)):
         arr[i] = arr[i].strip().replace('"', '')
     if arr[0] == "F_ID":        arr[1] = arr[1].replace(' ', '')
-    if arr[0] == "":            return False   #sai cú pháp search (khoảng trắng ở đầu )
+    if arr[0] == "":            return False   # wrong search syntax (space at the begining)
     elif arr[0] == "F_ID":      return searchDefault('id' , arr[1])
     elif arr[0] == "F_Name":    return searchDefault('name', arr[1])
     elif arr[0] == "F_Type":    return searchDefault('type', arr[1])

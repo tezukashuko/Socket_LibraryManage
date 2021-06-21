@@ -20,51 +20,51 @@
     }],
     "books": [{
         "id": 1,
-        "name": "aa aan",
-        "type": "admin",
+        "name": "Red",
+        "type": "Horror",
         "author": "admin",
         "filename": "book1.txt"
     }, {
         "id": 2,
-        "name": "admin",
-        "type": "admin1",
+        "name": "Blue",
+        "type": "Comedy",
         "author": "admin1",
         "filename": "book2.pdf"
     }, {
         "id": 3,
-        "name": "admin",
-        "type": "admin1",
+        "name": "White",
+        "type": "Romance",
         "author": "admin1",
         "filename": "book3.txt"
     }, {
         "id": 4,
-        "name": "admin",
-        "type": "admin1",
-        "author": "admin1",
+        "name": "Cyan",
+        "type": "Tragedy",
+        "author": "admin2",
         "filename": "1959003.docx"
     }, {
         "id": 5,
-        "name": "admin",
-        "type": "admin1",
-        "author": "admin1",
+        "name": "Black",
+        "type": "Action",
+        "author": "phu",
         "filename": "book5.txt"
     }, {
         "id": 6,
-        "name": "admin",
-        "type": "admin1",
-        "author": "admin1",
+        "name": "Purple",
+        "type": "Sci-Fi",
+        "author": "cuong",
         "filename": "book6.txt"
     }, {
         "id": 7,
-        "name": "admin",
-        "type": "admin1",
-        "author": "admin1",
+        "name": "Lime",
+        "type": "Manhua",
+        "author": "cuong",
         "filename": "book7.txt"
     }, {
         "id": 8,
-        "name": "admin",
-        "type": "admin1",
-        "author": "admin1",
+        "name": "Orange",
+        "type": "Adventure",
+        "author": "phu",
         "filename": "book8.txt"
     }]
 }

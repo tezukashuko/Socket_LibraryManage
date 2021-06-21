@@ -9,23 +9,23 @@ import svfunc
 
 #####
 
-ServerSocket = socket.socket()
+ServerSocket = socket.socket() # create a socket object
 host = '127.0.0.1'
 port = 1233
 ThreadCount = 0
 
 try:
-    ServerSocket.bind((host, port))
+    ServerSocket.bind((host, port)) # associate the socket with a specific network interface and port number
 except socket.error as e:
     print(str(e))
 
 print('Waiting for a Connection..')
-ServerSocket.listen(5)
+ServerSocket.listen(5) # enable server to accept() connection
 
 def threaded_client(connection):
     try:
         while True:
-            data = connection.recv(1024)
+            data = connection.recv(1024) #  reads whatever data the client sends
             # print('recved')
             arr = pickle.loads(data)
             print(arr)
@@ -38,7 +38,7 @@ def threaded_client(connection):
                 user['password'] = arr[2]
                 respone = svfunc.checkLogin(user)
                 print(respone)
-                connection.sendall(respone.encode('utf-8'))
+                connection.sendall(respone.encode('utf-8')) # echo back respone to client
 
             elif arr[0] == 'register':
                 user = {}
