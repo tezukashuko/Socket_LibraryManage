@@ -108,7 +108,7 @@ def login():
    
     respone = ClientSocket.recv(1024).decode('utf-8')
   
-    print(respone)
+    # print(respone)
 
     if (respone == 'Logged in successfully!'):
         username_inp.delete(0, 'end')
@@ -169,8 +169,8 @@ def search():
             Label(scrollable_frame, text=headertable[i]).grid(
                 row=0, column=i+1)
 
-        print(len(bookarr))
-        print(len(bookarr[0]))
+        # print(len(bookarr))
+        # print(len(bookarr[0]))
         for i in range(len(bookarr)):
             j = 1
             for k in bookarr[i]:
