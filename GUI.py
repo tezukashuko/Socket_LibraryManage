@@ -166,7 +166,14 @@ def search():
         messagebox.showwarning("Search", 'Wrong search syntax')
         return
     else:
-        headertable = ['ID', 'Bookname', 'Type', 'Author']
+        arr = ['searchheader']
+        try:
+            ClientSocket.sendall(pickle.dumps(arr))
+        except:
+            serverdown()
+            return
+        respone = ClientSocket.recv(1024)
+        headertable = pickle.loads(respone)
         for i in range(len(headertable)):
 
             Label(scrollable_frame, text=headertable[i]).grid(
@@ -177,7 +184,7 @@ def search():
         for i in range(len(bookarr)):
             j = 1
             for k in bookarr[i]:
-                if j == 5:
+                if j == len(headertable)+1:
                     break
                 Label(scrollable_frame, text=bookarr[i][k]).grid(
                     row=i+1, column=j, sticky='w', padx=5, pady=5)

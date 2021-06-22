@@ -62,9 +62,16 @@ def searchBook(inpStr):
     elif arr[0] == "F_Type":    return searchDefault('type', arr[1])
     elif arr[0] == "F_Author":  return searchDefault('author', arr[1])
 
+def getsearcHeader():
+    updatedataFromJson()
+    headerarr=[]
+    for i in arr['searchheader']:
+        for key in i:
+            headerarr.append(key)
+    return headerarr
+
 import json
 arr = 0
-
 
 ########## test down this line ##########
 
