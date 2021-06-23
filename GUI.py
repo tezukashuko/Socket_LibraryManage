@@ -71,7 +71,7 @@ def downloadBook(name):
         file.write(recv)
     file.close()
 
-    messagebox.showinfo("Status", "Downloaded file " + name + ' to ./bookdownload')
+    messagebox.showinfo("Status", "Downloaded file -" + name + '- to ./bookdownload')
 
 def connect():
     try:
@@ -215,7 +215,7 @@ def back(frame):
 
 
 root = Tk()
-root.title("Library Manage")
+root.title("Library Manage - Client")
 
 
 ####### socket connection ######
@@ -238,7 +238,7 @@ connect_btn.pack(pady=5, padx=5)
 
 login_frm = Frame(root)
 login_frm.grid(pady=5, padx=5, row=0, column=0, sticky=NSEW)
-Button(login_frm, text='<< Back', command=lambda x='login': back(x)).pack(
+Button(login_frm, text='<< Disconnect', command=lambda x='login': back(x)).pack(
     side=TOP, anchor=NW)
 connect_status = Label(login_frm, text='', fg='red')
 connect_status.pack(side=TOP, pady=5)
