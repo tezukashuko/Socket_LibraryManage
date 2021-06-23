@@ -45,7 +45,6 @@ def createScrollFrame(frame):
     canvas.create_window(0, 0, window=scrollable_frame, anchor=NW)
     return canvas, scrollable_frame
 
-
 def downloadBook(name):
     if not os.path.exists('./bookdownload'): #create folder if no exist
         os.makedirs('./bookdownload')
@@ -92,7 +91,6 @@ def connect():
         messagebox.showwarning(
             "Connect to server", "Invalid IP:Host")
 
-
 def login():
     username = username_inp.get()
     pw = pw_inp.get()
@@ -122,7 +120,6 @@ def login():
 
     else:
         messagebox.showwarning("Login", respone)
-
 
 def register():
     username = username_inp.get()
@@ -194,7 +191,6 @@ def search():
                    downloadBook(filename)).grid(row=i+1, column=j, sticky='n', padx=5, pady=5)
         updateScrollRegion(canvas)
         search_res_frm.pack(fill='x', padx=10, pady=10)
-
 
 def back(frame):
 
