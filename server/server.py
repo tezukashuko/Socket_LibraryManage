@@ -59,8 +59,8 @@ def threaded_client(connection):
                 address = connection.getpeername()
                 print(address[0] + ':' + str(address[1]) + ' ==> Getting filesize of ' +
                       arr[1] + ' from server, preparing for download')
-                file_size = os.path.getsize('booksv/'+arr[1])
-                connection.sendall(str(file_size))
+                file_size = os.path.getsize('./booksv/'+arr[1])
+                connection.sendall(str(file_size).encode('utf-8'))
             elif arr[0] == 'download':
                 address = connection.getpeername()
                 print(address[0] + ':' + str(address[1]) +
