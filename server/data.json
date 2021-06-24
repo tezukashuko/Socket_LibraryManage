@@ -11,7 +11,7 @@
   "books": [
     {
       "id": 1,
-      "name": "Red",
+      "bookname": "Red",
       "type": "Horror",
       "author": "admin",
       "year": 2015,
@@ -19,7 +19,7 @@
     },
     {
       "id": 2,
-      "name": "Blue",
+      "bookname": "Blue",
       "type": "Comedy",
       "author": "admin",
       "year": 2013,
@@ -27,7 +27,7 @@
     },
     {
       "id": 3,
-      "name": "White",
+      "bookname": "White",
       "type": "Romance",
       "author": "admin",
       "year": 2001,
@@ -35,7 +35,7 @@
     },
     {
       "id": 4,
-      "name": "Cyan",
+      "bookname": "Cyan",
       "type": "Tragedy",
       "author": "admin",
       "year": 2017,
@@ -43,7 +43,7 @@
     },
     {
       "id": 5,
-      "name": "Black",
+      "bookname": "Black",
       "type": "Action",
       "author": "phu",
       "year": 2021,
@@ -51,7 +51,7 @@
     },
     {
       "id": 6,
-      "name": "Purple",
+      "bookname": "Purple",
       "type": "Sci-Fi",
       "author": "cuong",
       "year": 2020,
@@ -59,7 +59,7 @@
     },
     {
       "id": 7,
-      "name": "Lime",
+      "bookname": "Lime",
       "type": "Manhua",
       "author": "cuong",
       "year": 2011,
@@ -67,7 +67,7 @@
     },
     {
       "id": 8,
-      "name": "Orange",
+      "bookname": "Orange",
       "type": "Adventure",
       "author": "phu",
       "year": 2008,

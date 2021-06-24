@@ -161,10 +161,9 @@ def search():
 
         for i in range(len(bookarr)):
             j = 1
-            for k in bookarr[i]:
-                if j == len(headertable)+1:
-                    break
-                Label(scrollable_frame, text=bookarr[i][k]).grid(row=i+1, column=j, sticky='w', padx=5, pady=5)
+            for k in headertable:
+                val = bookarr[i][k.lower()]
+                Label(scrollable_frame, text=val).grid(row=i+1, column=j, sticky='w', padx=5, pady=5)
                 j = j+1
             Button(scrollable_frame, text='Download', command=lambda filename=bookarr[i]['filename']:
                    downloadBook(filename)).grid(row=i+1, column=j, sticky='n', padx=5, pady=5)

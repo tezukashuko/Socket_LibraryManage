@@ -1,6 +1,6 @@
 def updatedataFromJson():
     global arr
-    f = open('data.json', "r")
+    f = open('./data.json', "r")
     arr = json.loads(f.read())
     f.close()
 
@@ -72,7 +72,6 @@ def getsearcHeader():
 
 import json
 arr = 0
-
 ########## test down this line ##########
 
 #print(searchBook("F_ID 1"))

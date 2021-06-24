@@ -48,9 +48,9 @@ def threaded_client(connection):
                 connection.sendall(str(respone).encode('utf-8'))
             elif arr[0] == 'search':
                 search_str = arr[1]
-                searchheader = svfunc.searchBook(search_str)
+                search = svfunc.searchBook(search_str)
                 # print(bookarr)
-                connection.sendall(pickle.dumps(searchheader))
+                connection.sendall(pickle.dumps(search))
             elif arr[0] == 'searchheader':
                 searchheader = svfunc.getsearcHeader()
                 # print(bookarr)
@@ -59,8 +59,8 @@ def threaded_client(connection):
                 address = connection.getpeername()
                 print(address[0] + ':' + str(address[1]) + ' ==> Getting filesize of ' +
                       arr[1] + ' from server, preparing for download')
-                file_size = os.path.getsize('./booksv/'+arr[1])
-                connection.sendall(str(file_size).encode('utf-8'))
+                file_size = os.path.getsize('booksv/'+arr[1])
+                connection.sendall(str(file_size))
             elif arr[0] == 'download':
                 address = connection.getpeername()
                 print(address[0] + ':' + str(address[1]) +
@@ -79,6 +79,7 @@ def threaded_client(connection):
     except:  # if client auto out
         address = connection.getpeername()
         print(address[0] + ':' + str(address[1]) + ' has been disconnected')
+        connection.close()
 while True:
     Client, address = ServerSocket.accept()
     print('Connected to: ' + address[0] + ':' + str(address[1]))
