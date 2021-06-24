@@ -20,8 +20,7 @@ while True:
         port += 1
 
 
-print('Server IP:port: ' + str(local_ip) + ':' + str(port) + ', please copy to Clients'
-      )
+print('Server IP:port: ' + str(local_ip) + ':' + str(port) + ', please copy to Clients')
 print('Waiting for a Connection..')
 ServerSocket.listen(5)  # enable server to accept() connection
 def threaded_client(connection):
@@ -76,10 +75,6 @@ def threaded_client(connection):
                         print(address[0] + ':' + str(address[1]) +
                               ' ==> Sent ' + arr[1] + ' completely to client')
                         break
-                # connection.sendall(respone.encode('utf-8'))
-            # if not data:
-            #     break
-            # connection.sendall(str.encode(reply))
         connection.close()
     except:  # if client auto out
         address = connection.getpeername()
@@ -88,6 +83,4 @@ while True:
     Client, address = ServerSocket.accept()
     print('Connected to: ' + address[0] + ':' + str(address[1]))
     threading._start_new_thread(threaded_client, (Client, ))
-    # ThreadCount += 1
-    # print('Thread Number: ' + str(ThreadCount))
 ServerSocket.close()

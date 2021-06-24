@@ -4,8 +4,6 @@ from tkinter import messagebox
 import os
 import pickle  # convert list to string
 
-
-
 ClientSocket = 0
 
 def serverdown():
@@ -32,8 +30,7 @@ def createScrollFrame(frame):
 
     ScrollBarH = Scrollbar(frame)
     ScrollBarV = Scrollbar(frame)
-    canvas.config(xscrollcommand=ScrollBarH.set,
-                  yscrollcommand=ScrollBarV.set, highlightthickness=0, height=100)
+    canvas.config(xscrollcommand=ScrollBarH.set, yscrollcommand=ScrollBarV.set, highlightthickness=0, height=100)
 
     ScrollBarH.config(orient=HORIZONTAL, command=canvas.xview)
     ScrollBarV.config(orient=VERTICAL, command=canvas.yview)
@@ -85,11 +82,9 @@ def connect():
             connect_status.configure(text=respone + ' to server')
             messagebox.showinfo("Status", "Connected to server")
         elif respone == 'Cannot connect to server':
-            messagebox.showwarning(
-                "Connect to server", "Cannot connect to server \nPlease try again or change IP:Host")
+            messagebox.showwarning("Connect to server", "Cannot connect to server \nPlease try again or change IP:Host")
     except:
-        messagebox.showwarning(
-            "Connect to server", "Invalid IP:Host")
+        messagebox.showwarning("Connect to server", "Invalid IP:Host")
 
 def login():
     username = username_inp.get()
@@ -101,15 +96,8 @@ def login():
     except:
         serverdown()
         return
-    # ClientSocket.sendall('login'.encode('utf-8'))
-
-    # ClientSocket.sendall(username.encode('utf-8'))
-
-    # ClientSocket.sendall(pw.encode('utf-8'))
    
     respone = ClientSocket.recv(1024).decode('utf-8')
-  
-    # print(respone)
 
     if (respone == 'Logged in successfully!'):
         username_inp.delete(0, 'end')
@@ -117,7 +105,6 @@ def login():
         # add check in here
         search_frm.tkraise()
         messagebox.showinfo("Login", respone)
-
     else:
         messagebox.showwarning("Login", respone)
 
@@ -136,8 +123,7 @@ def register():
     if respone == 'True':
         messagebox.showinfo("Register", "Your account has been created")
     else:
-        messagebox.showwarning(
-            "Register", "Your account hasn't been created!\nPlease check username")
+        messagebox.showwarning("Register", "Your account hasn't been created!\nPlease check username")
 
 def search():
     search = search_inp.get()
@@ -149,9 +135,7 @@ def search():
         serverdown()
         return
     if (scrollable_frame.winfo_exists()):
-
         for widgets in scrollable_frame.winfo_children():
-
             widgets.destroy()
 
     bookstr = ClientSocket.recv(1024)
@@ -172,20 +156,15 @@ def search():
         respone = ClientSocket.recv(1024)
         headertable = pickle.loads(respone)
         for i in range(len(headertable)):
-
             Label(scrollable_frame, text=headertable[i]).grid(
                 row=0, column=i+1)
 
-        # print(len(bookarr))
-        # print(len(bookarr[0]))
         for i in range(len(bookarr)):
             j = 1
             for k in bookarr[i]:
                 if j == len(headertable)+1:
                     break
-                Label(scrollable_frame, text=bookarr[i][k]).grid(
-                    row=i+1, column=j, sticky='w', padx=5, pady=5)
-                # updateScrollRegion(canvas)
+                Label(scrollable_frame, text=bookarr[i][k]).grid(row=i+1, column=j, sticky='w', padx=5, pady=5)
                 j = j+1
             Button(scrollable_frame, text='Download', command=lambda filename=bookarr[i]['filename']:
                    downloadBook(filename)).grid(row=i+1, column=j, sticky='n', padx=5, pady=5)
@@ -193,15 +172,12 @@ def search():
         search_res_frm.pack(fill='x', padx=10, pady=10)
 
 def back(frame):
-
     global ClientSocket
-
     if frame == 'login':
         ClientSocket.close()
         username_inp.delete(0, 'end')
         pw_inp.delete(0, 'end')
         connect_frm.tkraise()
-
     elif frame == 'search':
         search_inp.delete(0,END)
         if (scrollable_frame.winfo_exists()):
@@ -209,10 +185,8 @@ def back(frame):
                 widgets.destroy()
         login_frm.tkraise()
 
-
 root = Tk()
 root.title("Library Manage - Client")
-
 
 ####### socket connection ######
 
@@ -271,8 +245,7 @@ reg_btn.grid(row=2, column=2, sticky='e', pady=5, padx=10)
 search_frm = Frame(root)
 search_frm.grid(pady=5, padx=5, row=0, column=0, sticky=NSEW)
 
-Button(search_frm, text='<< Logout', command=lambda x='search': back(x)).pack(
-    side=TOP, anchor=NW)
+Button(search_frm, text='<< Logout', command=lambda x='search': back(x)).pack(side=TOP, anchor=NW)
 
 success = Label(search_frm, text='Logged in successful', fg='red')
 success.pack(padx=5)
