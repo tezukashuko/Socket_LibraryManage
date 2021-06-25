@@ -61,14 +61,19 @@ def searchBook(inpStr):
     elif arr[0] == "F_Name":    return searchDefault('name', arr[1])
     elif arr[0] == "F_Type":    return searchDefault('type', arr[1])
     elif arr[0] == "F_Author":  return searchDefault('author', arr[1])
-
+def myfunc(key):
+    return int(key[1])
 def getsearcHeader():
     updatedataFromJson()
     headerarr=[]
     for i in arr['searchheader']:
         for key in i:
-            headerarr.append(key)
-    return headerarr
+            headerarr.append([key,i[key]])
+    headerarr.sort(key = myfunc) #maybe it not read in order
+    res = []
+    for i in headerarr:
+        res.append(i[0])
+    return res
 
 import json
 arr = 0
