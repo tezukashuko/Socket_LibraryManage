@@ -1,0 +1,43 @@
+﻿Index	Name	Id	DuiHuan	Useful	AutoUse
+1	Du Long Tu Luyện Phù	18,1,526,1	1	0	0
+2	Du long uy danh lệnh	18,1,528,1	1	0	0
+3	Tiền Đồng Du Long 1	18,1,527,1	0	0	0
+4	Tiền Đồng Du Long 2	18,1,20712,2	1	0	0
+5	Tiền Đồng Du Long 3	18,1,20712,3	1	0	0
+6	Đĩnh Vàng Du Long	18,1,527,2	1	0	0
+7	Trứng Du Long	18,1,525,1	1	0	0
+8	Bách Luyện Hoàn (khóa)	18,1,468,1	0	0	0
+9	Vạn Vật Quy Nguyên Đơn (khóa)	18,1,384,1	1	0	0
+10	Thái Vân Truy Nguyệt	18,1,464,1	1	0	0
+11	Thượng Hải Nguyệt Minh	18,1,465,1	1	0	0
+12	Linh Chi Tục Mệnh Hoàn-Rương	18,1,241,1	0	0	0
+13	Lệnh bài chúc phúc (sơ) (khóa)	18,1,212,1	1	0	0
+14	Lệnh bài chúc phúc (trung) (khóa)	18,1,212,2	1	1	200
+15	Lệnh bài chúc phúc (cao) (khóa)	18,1,212,3	1	1	350
+16	Bản đồ bí cảnh	18,1,251,1	0	0	0
+17	Thùng rượu (50 bình) (khóa)	18,1,189,2	0	0	0
+18	Tu Luyện Đơn	18,1,258,1	0	0	0
+19	Lục Thao Tập Chú	18,1,320,2	0	0	0
+20	Võ Kinh Tổng Yếu	18,1,743,1	0	1	300
+21	Hòa Thị Ngọc	22,1,81,1	1	1	350
+22	Tần Lăng-Hòa Thị Bích	18,1,377,1	1	1	400
+23	Mã bài (Bôn Tiêu)	1,12,35,4	1	1	400
+24	Mã bài (Phiên Vũ)	1,12,20001,4	1	1	400
+25	Mã bài (Trục Nhật)	1,12,38,4	1	1	400
+26	Mã bài (Lăng Thiên)	1,12,39,4	1	1	400
+27	Huyền Tinh có vết nứt ( Cấp 6)	18,1,114,6	1	0	0
+28	Huyền Tinh thường (Cấp 7)	18,1,114,7	1	0	0
+29	Huyền Tinh có ti vết (Cấp 8)	18,1,114,8	1	1	300
+30	Huyền Tinh vô hạ (Cấp 9)	18,1,114,9	1	1	350
+31	Huyền Tinh hoàn mỹCấp 10)	18,1,114,10	1	1	400
+32	Huyền Tinh óng ánh (Cấp 11)	18,1,114,11	1	1	400
+33	Huyền Tinh trời ban (Cấp 12)	18,1,114,12	1	1	400
+34	Tiểu Du Long Danh Vọng Phù [Hộ thân phù]	18,1,1251,1	1	1	400
+35	Tiểu Du Long Danh Vọng Phù [Nón]	18,1,1251,2	1	1	400
+36	Tiểu Du Long Danh Vọng Phù [Y phục]	18,1,1251,3	1	1	400
+37	Tiểu Du Long Danh Vọng Phù [Yêu đái]	18,1,1251,4	0	1	400
+38	Tiểu Du Long Danh Vọng Phù [Giày]	18,1,1251,5	1	1	400
+39	Tiểu Du Long Danh Vọng Phù [Nhẫn]	18,1,1251,7	0	1	400
+40	Tiểu Du Long Danh Vọng Phù [Hộ uyển]	18,1,1251,8	0	1	400
+41	Tiểu Du Long Danh Vọng Phù [Hạng liên]	18,1,1251,6	0	1	400
+42	Tiểu Du Long Danh Vọng Phù [Ngọc bội]	18,1,1251,9	0	1	400

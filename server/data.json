@@ -5,73 +5,169 @@
     { "username": "cuong", "password": "cuong" },
     { "username": "123", "password": "123" },
     { "username": "admin1", "password": "admin" },
-    { "username": "admin2", "password": "admin2" },
+    { "username": "admin2", "password": "admin" },
     { "username": "admin3", "password": "admin" }
   ],
   "books": [
     {
       "id": 1,
-      "bookname": "Red",
+      "bookname": "Overview Network",
       "type": "Horror",
       "author": "admin",
       "year": 2015,
-      "filename": "book1.txt"
+      "filename": "01 - Overview Network.pdf"
     },
     {
       "id": 2,
-      "bookname": "Blue",
+      "bookname": "IP Subnet",
       "type": "Comedy",
       "author": "admin",
       "year": 2013,
-      "filename": "book2.pdf"
+      "filename": "02 - IP Subnet.pdf"
     },
     {
       "id": 3,
-      "bookname": "White",
+      "bookname": "DHCP",
       "type": "Romance",
       "author": "admin",
       "year": 2001,
-      "filename": "1959003.docx"
+      "filename": "03A - DHCP.pdf"
     },
     {
       "id": 4,
-      "bookname": "Cyan",
+      "bookname": "DNS",
       "type": "Tragedy",
       "author": "admin",
       "year": 2017,
-      "filename": "book4.txt"
+      "filename": "03B - DNS.pdf"
     },
     {
       "id": 5,
-      "bookname": "Black",
+      "bookname": "OSI - TCPIP",
       "type": "Action",
       "author": "phu",
       "year": 2021,
-      "filename": "book5.txt"
+      "filename": "04 - OSI - TCPIP.pdf"
     },
     {
       "id": 6,
-      "bookname": "Purple",
+      "bookname": "Application Layer",
       "type": "Sci-Fi",
-      "author": "cuong",
+      "author": "admin",
       "year": 2020,
-      "filename": "book6.txt"
+      "filename": "05 - Application Layer.pdf"
     },
     {
       "id": 7,
-      "bookname": "Lime",
-      "type": "Manhua",
-      "author": "cuong",
-      "year": 2011,
-      "filename": "book7.txt"
+      "bookname": "Transport Layer",
+      "type": "Education",
+      "author": "admin",
+      "year": 2019,
+      "filename": "06 - Transport Layer.pdf"
     },
     {
       "id": 8,
-      "bookname": "Orange",
+      "bookname": "Network Layer",
       "type": "Adventure",
       "author": "phu",
       "year": 2008,
-      "filename": "book8.txt"
+      "filename": "07 - Network Layer.pdf"
+    },
+	  {
+      "id": 9,
+      "bookname": "Datalink Layer",
+      "type": "Education",
+      "author": "admin",
+      "year": 2019,
+      "filename": "08 - Datalink Layer.pdf"
+    },
+	  {
+      "id": 10,
+      "bookname": "Networking Media",
+      "type": "Education",
+      "author": "admin",
+      "year": 2019,
+      "filename": "09 - Networking Media.pdf"
+    },
+	  {
+      "id": 11,
+      "bookname": "Network Device",
+      "type": "Education",
+      "author": "admin",
+      "year": 2019,
+      "filename": "10 - Network Device.pdf"
+    },
+	  {
+      "id": 12,
+      "bookname": "Algebra",
+      "type": "Education",
+      "author": "admin",
+      "year": 2019,
+      "filename": "Algebra.pdf"
+    },
+	  {
+      "id": 13,
+      "bookname": "Chapter_1_v8.1- Introduction",
+      "type": "Education",
+      "author": "admin",
+      "year": 2019,
+      "filename": "Chapter_1_v8.1- Introduction.ppt"
+    },
+	  {
+      "id": 14,
+      "bookname": "Chapter_2_v8.0-Application Layer",
+      "type": "Education",
+      "author": "admin",
+      "year": 2019,
+      "filename": "Chapter_2_v8.0-Application Layer.ppt"
+    },
+	  {
+      "id": 15,
+      "bookname": "Chapter_3_v8.0-Transport Layer",
+      "type": "Education",
+      "author": "admin",
+      "year": 2019,
+      "filename": "Chapter_3_v8.0-Transport Layer.ppt"
+    },
+	  {
+      "id": 16,
+      "bookname": "Chapter_4_v8.0-Network data Plane",
+      "type": "Education",
+      "author": "admin",
+      "year": 2019,
+      "filename": "Chapter_4_v8.0-Network data Plane.ppt"
+    },
+	  {
+      "id": 17,
+      "bookname": "Chapter_5_v8.0- Network Control Plane",
+      "type": "Education",
+      "author": "admin",
+      "year": 2019,
+      "filename": "Chapter_5_v8.0- Network Control Plane.ppt"
+    },
+	  {
+      "id": 18,
+      "bookname": "Chapter_6_v8.0- Link Layer and LANs",
+      "type": "Education",
+      "author": "admin",
+      "year": 2019,
+      "filename": "Chapter_6_v8.0- Link Layer and LANs.ppt"
+    },
+	  {
+      "id": 19,
+      "bookname": "Computer.Networking.A.TopDown.Approach.6th.Edition",
+      "type": "Education",
+      "author": "admin",
+      "year": 2019,
+      "filename": "Computer.Networking.A.TopDown.Approach.6th.Edition.pdf"
+    },
+    {
+      "id": 20,
+      "bookname": "AutoDuLong",
+      "type": "Gaming",
+      "author": "admin",
+      "year": 2019,
+      "filename": "AutoDuLong.txt"
     }
   ],
   "searchheader": [
