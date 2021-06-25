@@ -12,7 +12,7 @@
       "type": "Horror",
       "author": "admin",
       "year": 2015,
-      "filename": "01 - Overview Network.pdf"
+      "filename": "OverviewNetwork.pdf"
     },
     {
       "id": 2,
@@ -20,7 +20,7 @@
       "type": "Comedy",
       "author": "admin",
       "year": 2013,
-      "filename": "02 - IP Subnet.pdf"
+      "filename": "IPSubnet.pdf"
     },
     {
       "id": 3,
@@ -28,7 +28,7 @@
       "type": "Romance",
       "author": "admin",
       "year": 2001,
-      "filename": "03A - DHCP.pdf"
+      "filename": "DHCP.pdf"
     },
     {
       "id": 4,
@@ -36,7 +36,7 @@
       "type": "Tragedy",
       "author": "admin",
       "year": 2017,
-      "filename": "03B - DNS.pdf"
+      "filename": "DNS.pdf"
     },
     {
       "id": 5,
@@ -44,7 +44,7 @@
       "type": "Action",
       "author": "phu",
       "year": 2021,
-      "filename": "04 - OSI - TCPIP.pdf"
+      "filename": "OSI&TCPIP.pdf"
     },
     {
       "id": 6,
@@ -52,7 +52,7 @@
       "type": "Sci-Fi",
       "author": "admin",
       "year": 2020,
-      "filename": "05 - Application Layer.pdf"
+      "filename": "ApplicationLayer.pdf"
     },
     {
       "id": 7,
@@ -60,7 +60,7 @@
       "type": "Education",
       "author": "admin",
       "year": 2019,
-      "filename": "06 - Transport Layer.pdf"
+      "filename": "TransportLayer.pdf"
     },
     {
       "id": 8,
@@ -68,7 +68,7 @@
       "type": "Adventure",
       "author": "phu",
       "year": 2008,
-      "filename": "07 - Network Layer.pdf"
+      "filename": "NetworkLayer.pdf"
     },
 	  {
       "id": 9,
@@ -76,7 +76,7 @@
       "type": "Education",
       "author": "admin",
       "year": 2019,
-      "filename": "08 - Datalink Layer.pdf"
+      "filename": "DatalinkLayer.pdf"
     },
 	  {
       "id": 10,
@@ -84,7 +84,7 @@
       "type": "Education",
       "author": "admin",
       "year": 2019,
-      "filename": "09 - Networking Media.pdf"
+      "filename": "NetworkingMedia.pdf"
     },
 	  {
       "id": 11,
@@ -92,7 +92,7 @@
       "type": "Education",
       "author": "admin",
       "year": 2019,
-      "filename": "10 - Network Device.pdf"
+      "filename": "NetworkDevice.pdf"
     },
 	  {
       "id": 12,
@@ -104,59 +104,59 @@
     },
 	  {
       "id": 13,
-      "bookname": "Chapter_1_v8.1- Introduction",
+      "bookname": "Introduction Networking",
       "type": "Education",
       "author": "admin",
       "year": 2019,
-      "filename": "Chapter_1_v8.1- Introduction.ppt"
+      "filename": "IntroductionNetworking.ppt"
     },
 	  {
       "id": 14,
-      "bookname": "Chapter_2_v8.0-Application Layer",
+      "bookname": "Application Layer",
       "type": "Education",
       "author": "admin",
       "year": 2019,
-      "filename": "Chapter_2_v8.0-Application Layer.ppt"
+      "filename": "ApplicationLayer.ppt"
     },
 	  {
       "id": 15,
-      "bookname": "Chapter_3_v8.0-Transport Layer",
+      "bookname": "Transport Layer",
       "type": "Education",
       "author": "admin",
       "year": 2019,
-      "filename": "Chapter_3_v8.0-Transport Layer.ppt"
+      "filename": "TransportLayer.ppt"
     },
 	  {
       "id": 16,
-      "bookname": "Chapter_4_v8.0-Network data Plane",
+      "bookname": "Network data Plane",
       "type": "Education",
       "author": "admin",
       "year": 2019,
-      "filename": "Chapter_4_v8.0-Network data Plane.ppt"
+      "filename": "NetworkDataPlane.ppt"
     },
 	  {
       "id": 17,
-      "bookname": "Chapter_5_v8.0- Network Control Plane",
+      "bookname": "Network Control Plane",
       "type": "Education",
       "author": "admin",
       "year": 2019,
-      "filename": "Chapter_5_v8.0- Network Control Plane.ppt"
+      "filename": "NetworkControlPlane.ppt"
     },
 	  {
       "id": 18,
-      "bookname": "Chapter_6_v8.0- Link Layer and LANs",
+      "bookname": "Link Layer and LANs",
       "type": "Education",
       "author": "admin",
       "year": 2019,
-      "filename": "Chapter_6_v8.0- Link Layer and LANs.ppt"
+      "filename": "LinkLayer&LANs.ppt"
     },
 	  {
       "id": 19,
-      "bookname": "Computer.Networking.A.TopDown.Approach.6th.Edition",
+      "bookname": "ComputerNetworkingATopDownApproach6thEdition",
       "type": "Education",
       "author": "admin",
       "year": 2019,
-      "filename": "Computer.Networking.A.TopDown.Approach.6th.Edition.pdf"
+      "filename": "ComputerNetworkingATopDownApproach6thEdition.pdf"
     },
     {
       "id": 20,
