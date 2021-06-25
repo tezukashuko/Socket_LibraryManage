@@ -2,6 +2,7 @@ import socket
 from tkinter import *
 from tkinter import messagebox
 import os
+from struct import unpack
 import pickle  # convert list to string
 
 ClientSocket = 0
@@ -133,19 +134,26 @@ def register():
 
 def search():
     search = search_inp.get()
-
     arr = ['search', search]
     try:
         ClientSocket.sendall(pickle.dumps(arr))
     except:
         serverdown()
         return
+
     if (scrollable_frame.winfo_exists()):
         for widgets in scrollable_frame.winfo_children():
             widgets.destroy()
-
-    bookstr = ClientSocket.recv(1024)
-    bookarr = pickle.loads(bookstr)
+    respone = ClientSocket.recv(8)
+    (length,) = unpack('>Q',respone)
+    data = b''
+    buffersize = 1024
+    while len(data) < length:
+        readbuf = length - len(data) #find latest pack size to read
+        data += ClientSocket.recv(buffersize if readbuf > buffersize else readbuf)
+        if readbuf <= buffersize: break 
+    ClientSocket.sendall(b'\00') #sent ack to know EOF
+    bookarr = pickle.loads(data)
     if bookarr == False:
         messagebox.showwarning("Search", 'No book available')
         return

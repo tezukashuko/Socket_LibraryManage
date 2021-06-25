@@ -1,3 +1,4 @@
+import sys
 def updatedataFromJson():
     global arr
     f = open('./data.json', "r")
@@ -33,7 +34,7 @@ def createNewUser(user):
         return False # user ảo
     if checkExistUsername(user) == False:
         arr['users'].append(user)
-        newF = open('data.json',"w")
+        newF = open('./data.json',"w")
         newF.write(json.dumps(arr))
         newF.close()
         return True # create user successfully
@@ -78,5 +79,3 @@ def getsearcHeader():
 import json
 arr = 0
 ########## test down this line ##########
-
-#print(searchBook("F_ID 1"))

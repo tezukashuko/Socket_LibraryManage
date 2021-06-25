@@ -3,6 +3,8 @@ import os  # getfilesize
 import threading
 import pickle  # arr to str
 import svfunc
+import sys
+from struct import pack
 # function check
 #####
 ServerSocket = socket.socket()
@@ -49,8 +51,12 @@ def threaded_client(connection):
             elif arr[0] == 'search':
                 search_str = arr[1]
                 search = svfunc.searchBook(search_str)
+                arrbyte = pickle.dumps(search)
+                search_length = pack('>Q',sys.getsizeof(arrbyte))
+                connection.sendall(search_length)
                 # print(bookarr)
-                connection.sendall(pickle.dumps(search))
+                connection.sendall(arrbyte)
+                ack = connection.recv(1)
             elif arr[0] == 'searchheader':
                 searchheader = svfunc.getsearcHeader()
                 # print(bookarr)
@@ -59,13 +65,13 @@ def threaded_client(connection):
                 address = connection.getpeername()
                 print(address[0] + ':' + str(address[1]) + ' ==> Getting filesize of ' +
                       arr[1] + ' from server, preparing for download')
-                file_size = os.path.getsize('./booksv/'+arr[1])
+                file_size = os.path.getsize('booksv/'+arr[1])
                 connection.sendall(str(file_size).encode('utf-8'))
             elif arr[0] == 'download':
                 address = connection.getpeername()
                 print(address[0] + ':' + str(address[1]) +
                       ' ==> Started download ' + arr[1] + ' from server')
-                file_size = os.path.getsize('./booksv/'+arr[1])
+                file_size = os.path.getsize('booksv/'+arr[1])
                 f = open('./booksv/'+arr[1], 'rb')
                 while True:
                     data = f.read(1024)

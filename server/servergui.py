@@ -3,6 +3,7 @@ import os  # getfilesize
 import threading
 import pickle  # arr to str
 import svfunc
+from struct import pack
 from tkinter import *
 from tkinter import messagebox
 # function check
