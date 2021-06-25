@@ -25,39 +25,55 @@ notiIP = "Server IP:port: " + serverIP_str + ", please copy to Clients"
 ServerSocket.listen(5)
 def threaded_client(connection):
     try:
+        # reads whatever data the client sends
         data = connection.recv(1024)
+        # print('recved')
         arr = pickle.loads(data)
+        # print(arr)
+        # reply = 'Server Says: ' + data.decode('utf-8')
         if arr[0] == 'login':
             user = {}
             user['username'] = arr[1]
             user['password'] = arr[2]
             respone = svfunc.checkLogin(user)
+            # print(respone)
             connection.sendall(respone.encode('utf-8'))
         elif arr[0] == 'register':
             user = {}
             user['username'] = arr[1]
             user['password'] = arr[2]
             respone = svfunc.createNewUser(user)
+            # print(str(respone))
             connection.sendall(str(respone).encode('utf-8'))
-        elif arr[0] == 'searchheader':
-            searchheader = svfunc.getsearcHeader()
-            connection.sendall(pickle.dumps(searchheader))
         elif arr[0] == 'search':
             search_str = arr[1]
-            bookarr = svfunc.searchBook(search_str)
-            connection.sendall(pickle.dumps(bookarr))
+            search = svfunc.searchBook(search_str)
+            # print(bookarr)
+            connection.sendall(pickle.dumps(search))
+        elif arr[0] == 'searchheader':
+            searchheader = svfunc.getsearcHeader()
+            # print(bookarr)
+            connection.sendall(pickle.dumps(searchheader))
         elif arr[0] == 'getfilesize':
             address = connection.getpeername()
+            print(address[0] + ':' + str(address[1]) + ' ==> Getting filesize of ' +
+                    arr[1] + ' from server, preparing for download')
             file_size = os.path.getsize('./booksv/'+arr[1])
             connection.sendall(str(file_size).encode('utf-8'))
         elif arr[0] == 'download':
             address = connection.getpeername()
+            print(address[0] + ':' + str(address[1]) +
+                    ' ==> Started download ' + arr[1] + ' from server')
+            file_size = os.path.getsize('./booksv/'+arr[1])
             f = open('./booksv/'+arr[1], 'rb')
-            data = f.read(1024)
-            while data:
-                connection.send(data)
+            while True:
                 data = f.read(1024)
-                if not data:
+                connection.sendall(data)
+                file_size -= 1024
+                if file_size <= 0:
+                    f.close()
+                    print(address[0] + ':' + str(address[1]) +
+                            ' ==> Sent ' + arr[1] + ' completely to client')
                     break
         threaded_client(connection)
     except:  # if client auto out
