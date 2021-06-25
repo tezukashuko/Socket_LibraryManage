@@ -65,12 +65,13 @@ def threaded_client(connection):
                 address = connection.getpeername()
                 print(address[0] + ':' + str(address[1]) +
                       ' ==> Started download ' + arr[1] + ' from server')
+                file_size = os.path.getsize('./booksv/'+arr[1])
                 f = open('./booksv/'+arr[1], 'rb')
-                data = f.read(1024)
-                while data:
-                    connection.send(data)
+                while True:
                     data = f.read(1024)
-                    if not data:
+                    connection.sendall(data)
+                    file_size -= 1024
+                    if file_size <= 0:
                         f.close()
                         print(address[0] + ':' + str(address[1]) +
                               ' ==> Sent ' + arr[1] + ' completely to client')

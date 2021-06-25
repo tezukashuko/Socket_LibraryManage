@@ -61,10 +61,16 @@ def downloadBook(name):
         return
     file = open('./bookdownload/'+name, 'wb')
 
-    while filesize >= 0:
-        filesize = filesize - 1024
+    # while filesize >= 0:
+    #     filesize = filesize - 1024
+    #     recv = ClientSocket.recv(1024)
+    #     file.write(recv)
+    filedownloadsize = 0
+    while True:
         recv = ClientSocket.recv(1024)
         file.write(recv)
+        filedownloadsize += 1024
+        if filedownloadsize >= filesize: break
     file.close()
 
     messagebox.showinfo("Status", "Downloaded file -" + name + '- to ./bookdownload')
