@@ -43,38 +43,6 @@ def createScrollFrame(frame):
     canvas.create_window(0, 0, window=scrollable_frame, anchor=NW)
     return canvas, scrollable_frame
 
-def downloadBook(name):
-    if not os.path.exists('./bookdownload'): #create folder if no exist
-        os.makedirs('./bookdownload')
-    arr = ['getfilesize', name]
-    try:
-        ClientSocket.sendall(pickle.dumps(arr))
-    except:
-        serverdown()
-        return
-    filesize = int(ClientSocket.recv(1024).decode('utf-8'))
-
-    arr = ['download', name]
-    try:
-        ClientSocket.sendall(pickle.dumps(arr))
-    except:
-        serverdown()
-        return
-    file = open('./bookdownload/'+name, 'wb')
-
-    # while filesize >= 0:
-    #     filesize = filesize - 1024
-    #     recv = ClientSocket.recv(1024)
-    #     file.write(recv)
-    filedownloadsize = 0
-    while True:
-        recv = ClientSocket.recv(1024)
-        file.write(recv)
-        filedownloadsize += 1024
-        if filedownloadsize >= filesize: break
-    file.close()
-
-    messagebox.showinfo("Status", "Downloaded file -" + name + '- to ./bookdownload')
 
 def connect():
     try:
@@ -145,13 +113,14 @@ def search():
         for widgets in scrollable_frame.winfo_children():
             widgets.destroy()
     respone = ClientSocket.recv(8)
-    (length,) = unpack('>Q',respone)
+    (length,) = unpack('>Q',respone) #>Q = unsigned long long number (max number)
     data = b''
     buffersize = 1024
     while len(data) < length:
         readbuf = length - len(data) #find latest pack size to read
+        if readbuf <= 33: break #added latest data, <= 33 because some of data is truncated as define a variable to store it or lost during transfer to router, 33 is in server and client in 1PC, 17 is in 2 PC have server or client (debugged to see more detail)
         data += ClientSocket.recv(buffersize if readbuf > buffersize else readbuf)
-        if readbuf <= buffersize: break 
+        
     ClientSocket.sendall(b'\00') #sent ack to know EOF
     bookarr = pickle.loads(data)
     if bookarr == False:
@@ -183,6 +152,45 @@ def search():
                    downloadBook(filename)).grid(row=i+1, column=j, sticky='n', padx=5, pady=5)
         updateScrollRegion(canvas)
         search_res_frm.pack(fill='x', padx=10, pady=10)
+
+def downloadBook(name):
+    if not os.path.exists('./bookdownload'): #create folder if no exist
+        os.makedirs('./bookdownload')
+   
+    arr = ['download', name]
+    try:
+        ClientSocket.sendall(pickle.dumps(arr))
+    except:
+        serverdown()
+        return
+
+    respone = ClientSocket.recv(8)
+    (length,) = unpack('>Q',respone)
+    data = b''
+    buffersize = 1024*10
+    while len(data) < length:
+        readbuf = length - len(data) #find latest pack size to read
+        if readbuf <= 33: break #added latest data
+        data += ClientSocket.recv(buffersize if readbuf > buffersize else readbuf)
+         
+    ClientSocket.sendall(b'\00') #sent ack to know EOF
+
+    file = open('./bookdownload/'+name, 'wb')
+    file.write(data)
+    file.close()
+    # while filesize >= 0:
+    #     filesize = filesize - 1024
+    #     recv = ClientSocket.recv(1024)
+    #     file.write(recv)
+    # filedownloadsize = 0
+    # while True:
+    #     recv = ClientSocket.recv(1024)
+    #     file.write(recv)
+    #     filedownloadsize += 1024
+    #     if filedownloadsize >= filesize: break
+   
+
+    messagebox.showinfo("Status", "Downloaded file (" + name + ') to ./bookdownload')
 
 def back(frame):
     global ClientSocket

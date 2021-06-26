@@ -108,7 +108,7 @@
       "type": "Education",
       "author": "admin",
       "year": 2019,
-      "filename": "IntroductionNetworking.ppt"
+      "filename": "IntroductionNetworking.pptx"
     },
 	  {
       "id": 14,
@@ -116,7 +116,7 @@
       "type": "Education",
       "author": "admin",
       "year": 2019,
-      "filename": "ApplicationLayer.ppt"
+      "filename": "ApplicationLayer.pptx"
     },
 	  {
       "id": 15,
@@ -124,7 +124,7 @@
       "type": "Education",
       "author": "admin",
       "year": 2019,
-      "filename": "TransportLayer.ppt"
+      "filename": "TransportLayer.pptx"
     },
 	  {
       "id": 16,
@@ -132,7 +132,7 @@
       "type": "Education",
       "author": "admin",
       "year": 2019,
-      "filename": "NetworkDataPlane.ppt"
+      "filename": "NetworkDataPlane.pptx"
     },
 	  {
       "id": 17,
@@ -140,7 +140,7 @@
       "type": "Education",
       "author": "admin",
       "year": 2019,
-      "filename": "NetworkControlPlane.ppt"
+      "filename": "NetworkControlPlane.pptx"
     },
 	  {
       "id": 18,
@@ -148,7 +148,7 @@
       "type": "Education",
       "author": "admin",
       "year": 2019,
-      "filename": "LinkLayer&LANs.ppt"
+      "filename": "LinkLayer&LANs.pptx"
     },
 	  {
       "id": 19,
@@ -165,6 +165,14 @@
       "author": "admin",
       "year": 2019,
       "filename": "AutoDuLong.txt"
+    },
+	{
+      "id": 21,
+      "bookname": "LoremWordDocx",
+      "type": "Gaming",
+      "author": "admin",
+      "year": 2019,
+      "filename": "LoremWorkDocx.docx"
     }
   ],
   "searchheader": [

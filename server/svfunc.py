@@ -59,7 +59,7 @@ def searchBook(inpStr):
     if arr[0] == "F_ID":        arr[1] = arr[1].replace(' ', '')
     if arr[0] == "":            return False   # wrong search syntax (space at the begining)
     elif arr[0] == "F_ID":      return searchDefault('id' , arr[1])
-    elif arr[0] == "F_Name":    return searchDefault('name', arr[1])
+    elif arr[0] == "F_Name":    return searchDefault('bookname', arr[1])
     elif arr[0] == "F_Type":    return searchDefault('type', arr[1])
     elif arr[0] == "F_Author":  return searchDefault('author', arr[1])
 def myfunc(key):
@@ -78,4 +78,7 @@ def getsearcHeader():
 
 import json
 arr = 0
+# f = open('booksv\Algebra.pdf','rb')
+# data = f.read()
+# print(1)
 ########## test down this line ##########
