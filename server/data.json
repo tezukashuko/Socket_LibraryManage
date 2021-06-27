@@ -1,9 +1,7 @@
 {
   "users": [
-    {
-      "username": "admin",
-      "password": "admin"
-    }
+    { "username": "admin", "password": "admin" },
+    { "username": "admin1", "password": "admin" }
   ],
   "books": [
     {
@@ -20,7 +18,7 @@
       "type": "Education",
       "author": "admin",
       "year": 2013,
-      "filename": "IPSubnet.pdf"
+      "filename": "ApplicationLayer.pptx"
     },
     {
       "id": 3,
@@ -60,7 +58,7 @@
       "type": "Education",
       "author": "phu",
       "year": 2013,
-      "filename": "IPSubnet.pdf"
+      "filename": "ApplicationLayer.pptx"
     },
     {
       "id": 8,
@@ -88,23 +86,11 @@
     }
   ],
   "searchheader": [
-    {
-      "ID": "1"
-    },
-    {
-      "Bookname": "2"
-    },
-    {
-      "Type": "3"
-    },
-    {
-      "Author": "4"
-    },
-    {
-      "Year": "5"
-    },
-    {
-      "Filename": "6"
-    }
+    { "ID": "1" },
+    { "Bookname": "2" },
+    { "Type": "3" },
+    { "Author": "4" },
+    { "Year": "5" },
+    { "Filename": "6" }
   ]
 }
