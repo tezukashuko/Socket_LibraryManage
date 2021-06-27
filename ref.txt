@@ -1,5 +1,0 @@
-https://codezup.com/socket-server-with-multiple-clients-model-multithreading-python/
-https://www.joehutch.com/posts/tkinter-dynamic-scroll-area/
-https://linuxhint.com/python_socket_file_transfer_send/
-https://www.geeksforgeeks.org/python-tkinter-messagebox-widget/
-https://stackoverflow.com/questions/42459499/what-is-the-proper-way-of-sending-a-large-amount-of-data-over-sockets-in-python
