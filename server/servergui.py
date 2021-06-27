@@ -24,6 +24,7 @@ serverip = ServerSocket.getsockname()
 serverIP_str = serverip[0] + ':'+str(serverip[1])
 notiIP = "Server IP:port: " + serverIP_str + ", please copy to Clients"
 ServerSocket.listen(5)
+
 def threaded_client(connection):
     try:
         # reads whatever data the client sends
@@ -49,33 +50,38 @@ def threaded_client(connection):
         elif arr[0] == 'search':
             search_str = arr[1]
             search = svfunc.searchBook(search_str)
+            arrbyte = pickle.dumps(search)
+            search_length = pack('>Q',sys.getsizeof(arrbyte)) # pack to unsigned long long int 
+            connection.sendall(search_length)
             # print(bookarr)
-            connection.sendall(pickle.dumps(search))
+            connection.sendall(arrbyte)
+            ack = connection.recv(1)
         elif arr[0] == 'searchheader':
             searchheader = svfunc.getsearcHeader()
             # print(bookarr)
             connection.sendall(pickle.dumps(searchheader))
-        elif arr[0] == 'getfilesize':
+        # elif arr[0] == 'getfilesize':
+        #     address = connection.getpeername()
+        #     print(address[0] + ':' + str(address[1]) + ' ==> Getting filesize of ' +
+        #           arr[1] + ' from server, preparing for download')
+        #     file_size = os.path.getsize('booksv/'+arr[1])
+        #     connection.sendall(str(file_size).encode('utf-8'))
+        elif arr[0] == 'download':
             address = connection.getpeername()
             print(address[0] + ':' + str(address[1]) + ' ==> Getting filesize of ' +
                     arr[1] + ' from server, preparing for download')
-            file_size = os.path.getsize('./booksv/'+arr[1])
-            connection.sendall(str(file_size).encode('utf-8'))
-        elif arr[0] == 'download':
-            address = connection.getpeername()
-            print(address[0] + ':' + str(address[1]) +
-                    ' ==> Started download ' + arr[1] + ' from server')
-            file_size = os.path.getsize('./booksv/'+arr[1])
+
             f = open('./booksv/'+arr[1], 'rb')
-            while True:
-                data = f.read(1024)
-                connection.sendall(data)
-                file_size -= 1024
-                if file_size <= 0:
-                    f.close()
-                    print(address[0] + ':' + str(address[1]) +
-                            ' ==> Sent ' + arr[1] + ' completely to client')
-                    break
+            data = f.read()
+            file_size = pack('>Q',sys.getsizeof(data)) # pack to unsigned long long int 
+            connection.sendall(file_size)
+
+            print(address[0] + ':' + str(address[1]) +
+                    ' ==> Started send ' + arr[1] + ' from server')
+            connection.sendall(data)
+            f.close()
+            print(address[0] + ':' + str(address[1]) +' ==> Sent ' + arr[1] + ' completely to client')
+            ack = connection.recv(1)
         threaded_client(connection)
     except:  # if client auto out
         global scrollable_frame
@@ -84,6 +90,7 @@ def threaded_client(connection):
         Label(scrollable_frame, text=status).grid()
         connection.close()
         connectClient()
+
 def connectClient():
     # global ThreadCount
     Client, address = ServerSocket.accept()
@@ -91,6 +98,7 @@ def connectClient():
     Label(scrollable_frame, text=clientstr).grid()
     threading._start_new_thread(threaded_client, (Client, ))
     root.after(1000, connectClient)
+
 def createScrollFrame(frame):
     canvas = Canvas(frame)
     scrollable_frame = Frame(canvas)
@@ -105,6 +113,7 @@ def createScrollFrame(frame):
     canvas.pack(fill=BOTH, side=LEFT, expand=TRUE)
     canvas.create_window(0, 0, window=scrollable_frame, anchor=NW)
     return canvas, scrollable_frame
+    
 root = Tk()
 root.title("Library Manage - Server")
 Label(root, text=notiIP).pack()  # hiện ip cho ng dùng nhập
